@@ -1,4 +1,3 @@
-// Types et interfaces
 interface PaymentMethod {
     type: 'cash' | 'card' | 'token' | 'contactless';
     amount: number;
@@ -18,7 +17,6 @@ interface Stock {
     cups: number;
 }
 
-// Énumérations pour les états et erreurs
 enum MachineState {
     IDLE = 'IDLE',
     PAYMENT_PENDING = 'PAYMENT_PENDING',
@@ -35,7 +33,6 @@ enum ErrorType {
     TECHNICAL_ERROR = 'TECHNICAL_ERROR'
 }
 
-// Classe principale de la machine à café
 class CoffeeMachine {
     private state: MachineState;
     private stock: Stock;
@@ -77,7 +74,6 @@ class CoffeeMachine {
         ];
     }
 
-    // Méthodes publiques principales
     public insertPayment(payment: PaymentMethod): boolean {
         if (this.state !== MachineState.IDLE) {
             return false;
@@ -113,14 +109,12 @@ class CoffeeMachine {
             return false;
         }
 
-        // Vérification des stocks
         if (!this.checkStock()) {
             return false;
         }
 
         this.state = MachineState.PREPARING;
 
-        // Simulation de la préparation
         this.updateStock();
 
         this.state = MachineState.IDLE;
@@ -130,7 +124,6 @@ class CoffeeMachine {
         return true;
     }
 
-    // Méthodes privées utilitaires
     private checkStock(): boolean {
         if (!this.selectedCoffee) return false;
 
@@ -162,12 +155,11 @@ class CoffeeMachine {
 
     private handleError(error: ErrorType): void {
         this.state = MachineState.ERROR;
-        // Ici, vous pouvez ajouter la logique pour gérer les erreurs
-        // Par exemple, envoyer une notification, logger l'erreur, etc.
+        // Todo: add error handling logic
+        // For example, send notifications, log errors, etc.
         console.error(`Error: ${error}`);
     }
 
-    // Getters pour l'état actuel
     public getState(): MachineState {
         return this.state;
     }
