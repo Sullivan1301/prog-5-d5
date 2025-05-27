@@ -3,6 +3,15 @@
 ## Description
 Ce projet implémente une machine à café automatique avec gestion des paiements, sélection des boissons et distribution automatique.
 
+## Structure du Projet
+```
+.
+├── src/
+│   └── CoffeeMachine.ts    # Implémentation principale en TypeScript
+├── tsconfig.json          # Configuration TypeScript
+└── README.md             # Documentation du projet
+```
+
 ## Cas d'Utilisation
 
 ### 1. Acheter un café
@@ -59,4 +68,38 @@ Ce projet implémente une machine à café automatique avec gestion des paiement
    - Alertes automatiques pour les stocks bas
    - Journalisation des erreurs
    - Auto-diagnostic
+
+## Implémentation Technique
+
+### Technologies Utilisées
+- TypeScript
+- Node.js
+
+### Structure du Code
+- **Interfaces** : Définition des types de données
+  - `PaymentMethod` : Types de paiement acceptés
+  - `CoffeeType` : Types de café disponibles
+  - `Stock` : Gestion des stocks
+
+- **États de la Machine**
+  - `IDLE` : En attente
+  - `PAYMENT_PENDING` : Paiement en cours
+  - `COFFEE_SELECTION` : Sélection du café
+  - `PREPARING` : Préparation en cours
+  - `ERROR` : État d'erreur
+
+- **Gestion des Erreurs**
+  - `INSUFFICIENT_PAYMENT` : Paiement insuffisant
+  - `NO_WATER` : Plus d'eau
+  - `NO_COFFEE` : Plus de café
+  - `NO_CUPS` : Plus de gobelets
+  - `TECHNICAL_ERROR` : Erreur technique
+
+### Fonctionnalités Implémentées
+- Gestion des états de la machine
+- Validation des paiements
+- Sélection des types de café
+- Gestion des stocks
+- Gestion des erreurs
+- Préparation automatique
 
