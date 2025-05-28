@@ -4,7 +4,7 @@
     "description": "A clean architecture implementation of a coffee machine",
     "main": "example.js",
     "scripts": {
-        "start": "node example.js",
+        "start": "node cli.js",
         "test": "jest",
         "lint": "eslint ."
     },
